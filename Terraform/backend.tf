@@ -9,7 +9,7 @@
 # }
 
 terraform {
-  backend "remote" {
+  cloud {
     organization = "dareyio"
 
     workspaces {
