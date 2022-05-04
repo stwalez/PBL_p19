@@ -30,7 +30,7 @@ module "alb" {
 }
 
 module "autoscaling" {
-  source           = "./modules/Autoscaling"
+  source           = "./modules/AutoScaling"
   available_azs    = module.vpc.available_azs
   region           = var.region
   ami_bastion      = var.ami_bastion
