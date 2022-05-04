@@ -34,5 +34,5 @@ tags = {
   Enviroment      = "dev"
   Owner-Email     = "random_email@protonmail.com"
   Managed-By      = "Terraform"
-  Billing-Account = "0001110001" 
+  Billing-Account = "0001110001"
 }

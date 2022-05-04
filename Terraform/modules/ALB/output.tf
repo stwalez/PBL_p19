@@ -1,5 +1,9 @@
-output "alb_dns_name" {
+output "alb_dns_name_ext" {
   value = aws_lb.ext-alb.dns_name
+}
+
+output "alb_dns_name_int" {
+  value = aws_lb.ialb.dns_name
 }
 
 output "alb_nginx_tg_arn" {

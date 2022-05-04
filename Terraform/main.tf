@@ -34,8 +34,8 @@ module "autoscaling" {
   available_azs    = module.vpc.available_azs
   region           = var.region
   ami_bastion      = var.ami_bastion
-  ami_nginx = var.ami_nginx
-  ami_web = var.ami_web
+  ami_nginx        = var.ami_nginx
+  ami_web          = var.ami_web
   bastion_sg       = module.security.bastion_sg
   webserver_sg     = module.security.webserver_sg
   nginx_sg         = module.security.nginx_sg
