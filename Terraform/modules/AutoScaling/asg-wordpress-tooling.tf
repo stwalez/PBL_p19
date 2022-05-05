@@ -53,6 +53,12 @@ resource "aws_autoscaling_group" "wordpress-asg" {
     id      = aws_launch_template.wordpress-launch-template.id
     version = "$Latest"
   }
+
+  lifecycle {
+    create_before_destroy = true
+  }
+
+
   tag {
     key                 = "Name"
     value               = "ACS-wordpress"
@@ -122,6 +128,11 @@ resource "aws_autoscaling_group" "tooling-asg" {
     id      = aws_launch_template.tooling-launch-template.id
     version = "$Latest"
   }
+
+  lifecycle {
+    create_before_destroy = true
+  }
+
 
   tag {
     key                 = "Name"

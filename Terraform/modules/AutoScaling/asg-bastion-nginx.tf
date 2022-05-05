@@ -72,6 +72,10 @@ resource "aws_autoscaling_group" "bastion-asg" {
     var.public_subnet[1].id
   ]
 
+  lifecycle {
+    create_before_destroy = true
+  }
+
   launch_template {
     id      = aws_launch_template.bastion-launch-template.id
     version = "$Latest"
@@ -137,6 +141,10 @@ resource "aws_autoscaling_group" "nginx-asg" {
   launch_template {
     id      = aws_launch_template.nginx-launch-template.id
     version = "$Latest"
+  }
+
+  lifecycle {
+    create_before_destroy = true
   }
 
   tag {
