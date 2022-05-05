@@ -143,8 +143,10 @@ resource "aws_autoscaling_group" "nginx-asg" {
     version = "$Latest"
   }
 
+
   lifecycle {
     create_before_destroy = true
+    ignore_changes        = [load_balancers, target_group_arns]
   }
 
   tag {

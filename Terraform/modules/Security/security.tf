@@ -60,7 +60,7 @@ resource "aws_security_group" "ext-alb-sg" {
 
 }
 
-# security group for bastion, to allow access into the bastion host from you IP
+# security group for bastion, to allow access into the bastion host from external IP
 resource "aws_security_group" "bastion_sg" {
   name        = "bastion_sg"
   vpc_id      = var.vpc_id
