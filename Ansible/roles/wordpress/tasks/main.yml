@@ -2,7 +2,7 @@
 - name: mounting share(s)
   mount:
     path: /var/www
-    src: "{{ efs_id }}"
+    src: "{{ efs_id }}:/"
     fstype: efs
     opts: nosuid,noexec,defaults,tls,accesspoint={{ wordpress_fsap }}
     state: mounted
