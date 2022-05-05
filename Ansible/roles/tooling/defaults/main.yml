@@ -1,0 +1,18 @@
+---
+# defaults file for wordpress
+
+# EFS File System ID
+efs_id: "fs-0bf5bab9a9736daa0"
+
+# EFS Access point for wordpress
+tooling_fsap: "fsap-0a960af9ea5a33b38"
+
+
+# DB requirements
+db_endpoint: "otl-identifier.cvo1k7yvqffy.us-east-1.rds.amazonaws.com:3306"
+
+db_username: "wale"
+
+db_password: "devopspbl"
+
+tooling_db_name: "toolingdb"
