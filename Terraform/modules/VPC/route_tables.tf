@@ -14,7 +14,7 @@ resource "aws_route_table" "private-rtb" {
 resource "aws_route" "private-rtb-route" {
   route_table_id         = aws_route_table.private-rtb.id
   destination_cidr_block = "0.0.0.0/0"
-  gateway_id             = aws_nat_gateway.nat.id
+  nat_gateway_id         = aws_nat_gateway.nat.id
 }
 
 

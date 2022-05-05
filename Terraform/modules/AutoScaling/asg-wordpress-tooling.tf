@@ -131,7 +131,9 @@ resource "aws_autoscaling_group" "tooling-asg" {
 
   lifecycle {
     create_before_destroy = true
+    ignore_changes        = [load_balancers, target_group_arns]
   }
+
 
 
   tag {
@@ -145,11 +147,4 @@ resource "aws_autoscaling_group" "tooling-asg" {
 resource "aws_autoscaling_attachment" "asg_attachment_tooling" {
   autoscaling_group_name = aws_autoscaling_group.tooling-asg.id
   lb_target_group_arn    = var.tooling_tg
-
-  lifecycle {
-    create_before_destroy = true
-    ignore_changes = [
-      autoscaling_group_name, lb_target_group_arn
-    ]
-  }
 }
