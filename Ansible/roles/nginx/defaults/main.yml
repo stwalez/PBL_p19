@@ -1,2 +1,2 @@
 #internal loadbalancer variable
-ialb_endpoint : "https://internal-ialb-506677692.us-east-1.elb.amazonaws.com/"
+ialb_endpoint : "https://internal-ialb-1835616318.us-east-1.elb.amazonaws.com/"
