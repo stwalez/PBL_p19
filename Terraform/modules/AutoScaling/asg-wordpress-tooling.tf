@@ -51,9 +51,15 @@ resource "aws_autoscaling_group" "wordpress-asg" {
 
   launch_template {
     id      = aws_launch_template.wordpress-launch-template.id
-    version = "$Latest"
+    version = aws_launch_template.wordpress-launch-template.latest_version
   }
 
+  instance_refresh {
+    strategy = "Rolling"
+    preferences {
+      min_healthy_percentage = 50
+    }
+  }
 
   lifecycle {
     create_before_destroy = true
@@ -127,14 +133,19 @@ resource "aws_autoscaling_group" "tooling-asg" {
 
   launch_template {
     id      = aws_launch_template.tooling-launch-template.id
-    version = "$Latest"
+    version = aws_launch_template.tooling-launch-template.latest_version
   }
 
   lifecycle {
     create_before_destroy = true
     ignore_changes        = [load_balancers, target_group_arns]
   }
-
+  instance_refresh {
+    strategy = "Rolling"
+    preferences {
+      min_healthy_percentage = 50
+    }
+  }
 
 
   tag {

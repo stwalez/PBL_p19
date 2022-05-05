@@ -79,8 +79,17 @@ resource "aws_autoscaling_group" "bastion-asg" {
 
   launch_template {
     id      = aws_launch_template.bastion-launch-template.id
-    version = "$Latest"
+    version = aws_launch_template.bastion-launch-template.latest_version
   }
+
+  instance_refresh {
+    strategy = "Rolling"
+    preferences {
+      min_healthy_percentage = 50
+    }
+    triggers = ["tag"]
+  }
+
   tag {
     key                 = "Name"
     value               = "ACS-bastion"
@@ -141,13 +150,20 @@ resource "aws_autoscaling_group" "nginx-asg" {
 
   launch_template {
     id      = aws_launch_template.nginx-launch-template.id
-    version = "$Latest"
+    version = aws_launch_template.nginx-launch-template.latest_version
   }
-
 
   lifecycle {
     create_before_destroy = true
     ignore_changes        = [load_balancers, target_group_arns]
+  }
+
+  instance_refresh {
+    strategy = "Rolling"
+    preferences {
+      min_healthy_percentage = 50
+    }
+
   }
 
   tag {
