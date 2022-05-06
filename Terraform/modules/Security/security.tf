@@ -111,6 +111,7 @@ resource "aws_security_group" "nginx-sg" {
 
 resource "aws_security_group_rule" "inbound-nginx-http" {
   type                     = "ingress"
+  description = "inbound-nginx-http"
   from_port                = 443
   to_port                  = 443
   protocol                 = "tcp"
@@ -120,6 +121,7 @@ resource "aws_security_group_rule" "inbound-nginx-http" {
 
 resource "aws_security_group_rule" "inbound-bastion-ssh" {
   type                     = "ingress"
+  description = "inbound-bastion-ssh"
   from_port                = 22
   to_port                  = 22
   protocol                 = "tcp"
@@ -196,7 +198,7 @@ resource "aws_security_group_rule" "inbound-web-ssh" {
   security_group_id        = aws_security_group.webserver-sg.id
 }
 
-# security group for datalayer to alow traffic from websever on nfs and mysql port and bastiopn host on mysql port
+# security group for datalayer to alow traffic from websever on nfs and mysql port and bastion host on mysql port
 resource "aws_security_group" "datalayer-sg" {
   name   = "datalayer-sg"
   vpc_id = var.vpc_id
