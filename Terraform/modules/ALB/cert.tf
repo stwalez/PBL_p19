@@ -61,3 +61,15 @@ resource "aws_route53_record" "wordpress" {
     evaluate_target_health = true
   }
 }
+
+resource "aws_route53_record" "default_page" {
+  zone_id = data.aws_route53_zone.onelovetooling.zone_id
+  name    = "onelovetooling.tk"
+  type    = "A"
+
+  alias {
+    name                   = aws_lb.ext-alb.dns_name
+    zone_id                = aws_lb.ext-alb.zone_id
+    evaluate_target_health = true
+  }
+}

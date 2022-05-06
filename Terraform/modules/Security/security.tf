@@ -96,7 +96,7 @@ resource "aws_security_group" "nginx-sg" {
 
 resource "aws_security_group_rule" "inbound-nginx-http" {
   type                     = "ingress"
-  description = "inbound-nginx-http"
+  description              = "inbound-nginx-http"
   from_port                = 443
   to_port                  = 443
   protocol                 = "tcp"
@@ -106,7 +106,7 @@ resource "aws_security_group_rule" "inbound-nginx-http" {
 
 resource "aws_security_group_rule" "inbound-bastion-ssh" {
   type                     = "ingress"
-  description = "inbound-bastion-ssh"
+  description              = "inbound-bastion-ssh"
   from_port                = 22
   to_port                  = 22
   protocol                 = "tcp"
