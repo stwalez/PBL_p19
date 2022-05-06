@@ -31,7 +31,7 @@ master-username = "wale"
 master-password = "devopspbl"
 
 tags = {
-  Enviroment      = "dev"
+  Enviroment      = "test"
   Owner-Email     = "random_email@protonmail.com"
   Managed-By      = "Terraform"
   Billing-Account = "0001110001"
