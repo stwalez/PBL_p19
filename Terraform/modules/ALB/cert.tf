@@ -79,7 +79,5 @@ resource "aws_route53_record" "www" {
   name    = "www"
   type    = "CNAME"
   ttl     = "60"
-
-  set_identifier = "web"
   records        = ["onelovetooling.tk"]
 }
