@@ -20,7 +20,7 @@
     regexp: "{{ item.regexp }}"
     replace: "{{ item.line }}"
   loop:
-    - { regexp: '^localhost', line: "{{ db_endpoint }}" }
-    - { regexp: '^username_here', line: "{{ db_username }}" }
-    - { regexp: '^database_name_here', line: "{{ db_name }}" }
-    - { regexp: '^password_here', line: "{{ db_password }}" }
+    - { regexp: 'localhost', line: "{{ db_endpoint }}" }
+    - { regexp: 'username_here', line: "{{ db_username }}" }
+    - { regexp: 'database_name_here', line: "{{ db_name }}" }
+    - { regexp: 'password_here', line: "{{ db_password }}" }

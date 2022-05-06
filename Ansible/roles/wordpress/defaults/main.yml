@@ -2,14 +2,14 @@
 # defaults file for wordpress
 
 # EFS File System ID
-efs_id: "fs-0bf5bab9a9736daa0"
+efs_id: "fs-09eda7e9d1234e139"
 
 # EFS Access point for wordpress
-wordpress_fsap: "fsap-053e177282a1016d1"
+wordpress_fsap: "fsap-03160e74df0945cfa"
 
 
 # DB requirements
-db_endpoint: "otl-identifier.cvo1k7yvqffy.us-east-1.rds.amazonaws.com:3306"
+db_endpoint: "otl-identifier.cvo1k7yvqffy.us-east-1.rds.amazonaws.com"
 
 db_username: "wale"
 

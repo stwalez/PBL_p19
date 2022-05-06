@@ -19,7 +19,6 @@
     regexp: "{{ item.regexp }}"
     replace: "{{ item.line }}"
   loop:
-    - { regexp: '^mysql.tooling.svc.cluster.local', line: "{{ db_endpoint }}" }
-    - { regexp: '^admin', line: "{{ db_username }}" }
-    - { regexp: '^tooling', line: "{{ tooling_db_name }}" }
-    - { regexp: '^admin', line: "{{ db_password }}" }
+    - { regexp: "'mysql.tooling.svc.cluster.local', 'admin'", line: "'{{ db_endpoint }}', '{{ db_username }}'" }
+    - { regexp: "'admin', 'tooling'", line: "'{{ db_password }}', '{{ tooling_db_name }}'" }
+

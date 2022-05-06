@@ -35,3 +35,9 @@
     src: templates/nginx.conf.j2
     dest: /etc/nginx/nginx.conf 
     follow: yes
+
+- name: create healthstatus file
+  ansible.builtin.file:
+    path: /var/www/html/healthstatus
+    state: touch
+  notify: Restart nginx
