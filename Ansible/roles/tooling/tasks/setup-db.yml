@@ -13,6 +13,27 @@
     encoding: utf8
     state: present
 
+- name: Restore database
+  community.mysql.mysql_db:
+    login_host: "{{ db_endpoint }}"
+    login_user: "{{ db_username }}"
+    login_password: "{{ db_password }}"
+    name: "{{ tooling_db_name }}"
+    state: import
+    target: /home/ec2-user/tooling/tooling-db.sql
+  ignore_errors: yes
+
+- name: Create a user in  in tooling db user table
+  community.mysql.mysql_query:
+    login_host: "{{ db_endpoint }}"
+    login_user: "{{ db_username }}"
+    login_password: "{{ db_password }}"
+    login_db: "{{ tooling_db_name }}"
+    query:
+    - INSERT INTO users (id, username, password, email, user_type, status) 
+      VALUES (2, "myuser", "5f4dcc3b5aa765d61d8327deb882cf99", "user@mail.com", "admin", "1");
+  ignore_errors: yes
+
 - name: Input tooling credentials
   ansible.builtin.replace:
     path: /var/www/html/functions.php
