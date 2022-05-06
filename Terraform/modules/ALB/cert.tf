@@ -73,3 +73,13 @@ resource "aws_route53_record" "default_page" {
     evaluate_target_health = true
   }
 }
+
+resource "aws_route53_record" "www" {
+  zone_id = data.aws_route53_zone.onelovetooling.zone_id
+  name    = "www"
+  type    = "CNAME"
+  ttl     = "60"
+
+  set_identifier = "web"
+  records        = ["onelovetooling.tk"]
+}
